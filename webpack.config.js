@@ -8,19 +8,30 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.scss$/,
-            use: [
-                'style-loader',
-                {
-                    loader: 'css-loader',
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
                     options: {
-                        importLoaders: 1
+                        presets: ['@babel/preset-env']
                     }
-                },
-                'postcss-loader',
-                'sass-loader'
-            ]
-        }]
+                }
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader',
+                    'sass-loader'
+                ]
+            }
+        ]
 
     }
 };

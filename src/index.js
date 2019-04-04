@@ -1,6 +1,15 @@
 import _ from 'lodash';
 import './style.scss';
 
+function xxx(){
+  let content = "Hello ";
+  const NAME = "ES6";
+  var div = document.createElement('div');
+  div.innerHTML = content + NAME;
+  return div
+}
+document.body.appendChild(xxx());
+
 function component() {
   var element = document.createElement('div');
 
